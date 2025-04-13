@@ -18,6 +18,7 @@ export default defineConfig(async ({ mode }: ConfigEnv): Promise<UserConfig> => 
       host: "::",
       port: 8080,
     },
+    base: '/HIMTECH/',
     plugins,
     resolve: {
       alias: {
