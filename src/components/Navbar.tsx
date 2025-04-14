@@ -42,7 +42,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <img 
-            src="/images/logo.png" 
+            src="/HIMTECH/images/logo.png" 
             alt="HIMTECH Logo"
             className="h-12 md:h-14 w-auto"
           />

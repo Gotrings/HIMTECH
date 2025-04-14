@@ -40,7 +40,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-block p-3 rounded-full bg-himtech-lightBlue/10 mb-6 animate-fade-in">
             <img 
-              src="/images/logo.png" 
+              src="/HIMTECH/images/logo.png" 
               alt="HIMTECH Logo" 
               className="h-16 md:h-20 w-auto" 
             />
