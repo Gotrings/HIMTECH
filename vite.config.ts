@@ -14,11 +14,20 @@ export default defineConfig(async ({ mode }: ConfigEnv): Promise<UserConfig> => 
   }
 
   return {
+    base: '/HIMTECH/',
     server: {
       host: "::",
       port: 8080,
     },
-    base: process.env.NODE_ENV === 'production' ? '/HIMTECH/' : '/',
+    build: {
+      outDir: 'dist',
+      assetsDir: 'assets',
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
+        },
+      },
+    },
     plugins,
     resolve: {
       alias: {
