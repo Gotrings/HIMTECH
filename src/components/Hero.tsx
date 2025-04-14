@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, className }) => {
       <div className="text-center z-10 px-6 max-w-3xl mx-auto animate-fade-in">
         <div className="flex justify-center mb-6">
           <img 
-            src="/lovable-uploads/db36c826-889a-48b0-9bd1-6165fdf6dd90.png" 
+            src="/images/logo.png" 
             alt="HIMTECH Logo" 
             className="h-24 md:h-32 w-auto animate-scale-in" 
           />
