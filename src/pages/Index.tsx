@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Calendar, Users, MapPin, Clock } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
@@ -34,14 +34,6 @@ const Index = () => {
             description: "Teams collaborating on creative solutions during our 48-hour innovation challenge."
         }
     ];
-
-    const upcomingEvent = {
-        title: "MICO HIMTECH 2025",
-        date: "Upcoming - 2025",
-        time: "Upcoming",
-        location: "Upcoming",
-        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
-    };
 
     return (
         <div className="min-h-screen flex flex-col overflow-hidden page-transition-enter">
@@ -90,64 +82,6 @@ const Index = () => {
                                     className="aspect-[4/5] h-auto"
                                 />
                             ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Upcoming Event Section */}
-                <section className="py-20 px-6 bg-gradient-to-r from-himtech-blue/5 to-himtech-lightBlue/5">
-                    <div className="max-w-7xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-bold text-himtech-blue mb-12 text-center">
-                            Upcoming Event
-                        </h2>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                            <div className="lg:order-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                                <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
-                                    <img
-                                        src={upcomingEvent.image}
-                                        alt={upcomingEvent.title}
-                                        className="object-cover w-full h-full"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="lg:order-1 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                                <h3 className="text-2xl md:text-3xl font-bold text-himtech-blue mb-4">
-                                    {upcomingEvent.title}
-                                </h3>
-
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-start">
-                                        <Calendar className="h-5 w-5 text-himtech-lightBlue mr-3 mt-0.5" />
-                                        <div>
-                                            <p className="font-medium">Date</p>
-                                            <p className="text-himtech-gray">{upcomingEvent.date}</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start">
-                                        <Clock className="h-5 w-5 text-himtech-lightBlue mr-3 mt-0.5" />
-                                        <div>
-                                            <p className="font-medium">Time</p>
-                                            <p className="text-himtech-gray">{upcomingEvent.time}</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start">
-                                        <MapPin className="h-5 w-5 text-himtech-lightBlue mr-3 mt-0.5" />
-                                        <div>
-                                            <p className="font-medium">Location</p>
-                                            <p className="text-himtech-gray">{upcomingEvent.location}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <Link to="/event-register" className="px-6 py-3 bg-himtech-blue text-white rounded-lg hover:bg-himtech-blue/90 transition-colors inline-flex items-center group">
-                                    Register Now
-                                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                </Link>
-                            </div>
                         </div>
                     </div>
                 </section>

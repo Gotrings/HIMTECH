@@ -1,4 +1,4 @@
-
+/* postcss */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -142,4 +142,29 @@
     content: '';
     @apply absolute inset-0 backdrop-blur-[2px] bg-white/80 dark:bg-black/80 -z-10;
   }
+}
+
+/* Menghapus bounce scroll pada semua halaman */
+html {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  overscroll-behavior: none;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  overscroll-behavior: none;
+}
+
+/* Mengizinkan bounce scroll hanya saat refresh */
+.refresh-bounce {
+  overscroll-behavior: auto;
+}
+
+.scroll-optimized {
+  will-change: transform;
+  transform: translateZ(0);
 }

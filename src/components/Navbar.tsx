@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { cn } from "@/lib/utils";
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { ChevronRight } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,16 +10,29 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      
+      timeoutId = setTimeout(() => {
+        if (window.scrollY > 20) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      }, 100); // Delay 100ms
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Close mobile menu when changing routes
@@ -33,13 +47,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav 
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-        isScrolled ? "bg-white/90 dark:bg-himtech-navy/90 backdrop-blur-md shadow-sm" : "bg-transparent"
-      )}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    // Ganti backdrop-blur dengan background solid untuk performa lebih baik
+    <nav className={`fixed w-full z-50 transition-colors duration-300 bg-white border-b border-gray-200`}>
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-3">
         <Link to="/" className="flex items-center space-x-2">
           <img 
             src="/HIMTECH/images/logo.png" 

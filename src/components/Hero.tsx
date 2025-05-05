@@ -3,9 +3,9 @@ import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface HeroProps {
-  title: string;
-  subtitle?: string;
-  className?: string;
+  title: React.ReactNode;
+  subtitle: string;
+  className?: string;  // Added className as optional prop
 }
 
 const Hero: React.FC<HeroProps> = ({ title, subtitle, className }) => {
@@ -27,7 +27,9 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, className }) => {
       
       {/* Circuit Lines Animation */}
       <div className="absolute inset-0 pointer-events-none">
+        // Kurangi jumlah animasi atau gunakan CSS transform untuk performa lebih baik
         <div className="absolute top-1/4 left-1/4 w-px h-20 bg-himtech-lightBlue/30 animate-circuit-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-px h-24 bg-himtech-lightBlue/30 animate-circuit-pulse delay-1000"></div>
         <div className="absolute top-1/3 right-1/4 w-px h-32 bg-himtech-lightBlue/30 animate-circuit-pulse" style={{ animationDelay: '0.5s' }}></div>
         <div className="absolute bottom-1/4 left-1/3 w-px h-24 bg-himtech-lightBlue/30 animate-circuit-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-2/3 right-1/3 w-px h-16 bg-himtech-lightBlue/30 animate-circuit-pulse" style={{ animationDelay: '1.5s' }}></div>

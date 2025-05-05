@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StoryCard from '@/components/StoryCard';
+import ImageCarouselModal from '@/components/ImageCarouselModal';
 import { Search, Filter } from 'lucide-react';
 
 const Gallery = () => {
@@ -11,23 +12,25 @@ const Gallery = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const stories = [
     {
       id: 1,
-      image: "./pict/P1010039.JPG",
-      title: "MICO 2024",
-      date: "1 September 2024",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+      title: "Tech Summit 2023",
+      date: "November 15, 2023",
       category: "event",
-      description: "Day 1."
+      description: "Our annual technology summit bringing together innovators and leaders in the tech industry."
     },
     {
       id: 2,
-      image: "./pict/IMG20240901125053.jpg",
-      title: "Himpunan Games",
-      date: "1 September 2024",
-      category: "event",
-      description: "Foto Bersama."
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1",
+      title: "Coding Workshop",
+      date: "August 10, 2023",
+      category: "workshop",
+      description: "Students learning advanced programming techniques during our hands-on coding workshops."
     },
     {
       id: 3,
@@ -104,6 +107,11 @@ const Gallery = () => {
     return matchesSearch && matchesFilter;
   });
 
+  const handleStoryClick = (index: number) => {
+    setSelectedImageIndex(index);
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen flex flex-col page-transition-enter">
       <Navbar />
@@ -166,6 +174,7 @@ const Gallery = () => {
                   date={story.date}
                   delay={index % 9}
                   className="aspect-[4/3] h-auto"
+                  onClick={() => handleStoryClick(index)}
                 />
               ))}
             </div>
@@ -179,6 +188,13 @@ const Gallery = () => {
           )}
         </div>
       </main>
+      
+      <ImageCarouselModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        stories={filteredStories}
+        initialIndex={selectedImageIndex}
+      />
       
       <Footer />
     </div>

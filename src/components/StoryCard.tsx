@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { cn } from "@/lib/utils";
 
@@ -10,6 +9,7 @@ interface StoryCardProps {
   className?: string;
   imageClassName?: string;
   delay?: number;
+  onClick?: () => void;
 }
 
 const StoryCard: React.FC<StoryCardProps> = ({
@@ -19,15 +19,17 @@ const StoryCard: React.FC<StoryCardProps> = ({
   date,
   className,
   imageClassName,
-  delay = 0
+  delay = 0,
+  onClick
 }) => {
   return (
     <div 
       className={cn(
-        "story-card animate-fade-in group", 
+        "story-card animate-fade-in group cursor-pointer", 
         className
       )}
       style={{ animationDelay: `${delay * 0.1}s` }}
+      onClick={onClick}
     >
       <div className="relative h-full w-full overflow-hidden rounded-xl">
         <img
